@@ -6,3 +6,51 @@ body {
 #map {
     height: 100vh;
 }
+
+.title {
+    font-size: 88px;
+    position: absolute;
+    z-index: 10;
+    top: 100px;
+    left: 100px;
+    color: #333333;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.search-container {
+    width: 400px;
+    height: 60px;
+    background-color: #454e53;
+    position: absolute;
+    z-index: 10;
+    left: 100px;
+    top: 230px;
+    border-radius: 30px;
+}
+
+.search{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.search input {
+    flex-grow: 1;
+    font-size: 25px;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.search input {
+    outline: none;
+}
+
+.search i {
+    color: white;
+    font-size: 25px;
+}
