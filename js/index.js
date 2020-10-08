@@ -9,11 +9,16 @@ function initMap() {
     center: centerIndonesia,
     zoom: 16,
   });
-  var marker = new google.maps.Marker({
-    position: {
-      lat: 3.597031,
-      lng: 98.678513,
-    },
-    map: map,
-  });
+  
+  createMarker();
+}
+
+const createMarker = () => {
+    var marker = new google.maps.Marker({
+        position: {
+          lat: 3.597031,
+          lng: 98.678513,
+        },
+        map: map,
+    });
 }
