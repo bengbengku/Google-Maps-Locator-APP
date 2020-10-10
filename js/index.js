@@ -9,9 +9,24 @@ function initMap() {
     center: centerIndonesia,
     zoom: 16,
   });
-  
+  getStores();
   createMarker();
 }
+
+const getStores = () => {
+    const API_URL = 'http://localhost:3000/api/stores';
+    fetch(API_URL)
+    .then((response) => {
+      if (response.status == 200) {
+        return response.json();
+      } else {
+        throw new Error(response.status);
+      }
+    }).then((data) => {
+      console.log(data);
+    })
+}
+
 
 const createMarker = () => {
     var marker = new google.maps.Marker({
