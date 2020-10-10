@@ -39,17 +39,18 @@ const searchLocationsNear = (stores) => {
     let name = store.storeName;
     let address = store.addressLines[0];
     bounds.extend(latlng);
-    createMarker(latlng, name, address);
+    createMarker(latlng, name, address, index+1);
   });
   map.fitBounds(bounds);
 }
 
-const createMarker = (latlng, name, address) => {
+const createMarker = (latlng, name, address, storeNumber) => {
     let html="<b>" + name + "</b> <br/>" + address;
 
     var marker = new google.maps.Marker({
         position: latlng,
         map: map,
+        label: `${storeNumber}`
     });
 
     google.maps.event.addListener(marker, 'click', function() {
