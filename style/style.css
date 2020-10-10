@@ -65,3 +65,45 @@ body {
     left: 100px;
     bottom: 20px;
 }
+
+.store-info-window {
+    min-width: 300px;
+    font-size: 18px;
+    padding: 8px;
+}
+
+.store-info-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(0,0,0,0.87);
+}
+
+.store-info-open-status {
+    margin-top: 6px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+    color: rgba(0,0,0,0.57);
+}
+
+.store-info-address, .store-info-phone {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.store-info-address .icon, .store-info-phone .icon {
+    width: 30px;
+    height: 30px;
+    background-color: #183153;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+    margin-right: 8px;
+}
+
+.store-info-phone a, .store-info-address {
+    text-decoration: none;
+    color: #514c4c;
+}
