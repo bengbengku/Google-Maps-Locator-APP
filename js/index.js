@@ -7,10 +7,9 @@ function initMap() {
   };
   map = new google.maps.Map(document.getElementById("map"), {
     center: centerIndonesia,
-    zoom: 16,
+    zoom: 14,
   });
   getStores();
-  createMarker();
 }
 
 const getStores = () => {
@@ -23,17 +22,31 @@ const getStores = () => {
         throw new Error(response.status);
       }
     }).then((data) => {
-      console.log(data);
+      searchLocationsNear(data);
     })
 }
 
+const searchLocationsNear = (stores) => {
+  let bounds = new google.maps.LatLngBounds();
 
-const createMarker = () => {
+  stores.forEach((store, index) => {
+    let latlng = new google.maps.LatLng(
+      store.location.coordinates[1],
+      store.location.coordinates[0]
+    );
+    let name = store.storeName;
+    let address = store.addressLines[0];
+    bounds.extend(latlng);
+    createMarker(latlng, name, address);
+  });
+  map.fitBounds(bounds);
+}
+
+const createMarker = (latlng, name, address) => {
     var marker = new google.maps.Marker({
-        position: {
-          lat: 3.597031,
-          lng: 98.678513,
-        },
+        position: latlng,
         map: map,
     });
 }
+
+
