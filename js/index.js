@@ -1,4 +1,5 @@
-let map;
+var map;
+var infoWindow;
 
 function initMap() {
   let centerIndonesia = {
@@ -9,6 +10,7 @@ function initMap() {
     center: centerIndonesia,
     zoom: 14,
   });
+  infoWindow = new google.maps.InfoWindow();
   getStores();
 }
 
@@ -43,9 +45,16 @@ const searchLocationsNear = (stores) => {
 }
 
 const createMarker = (latlng, name, address) => {
+    let html="<b>" + name + "</b> <br/>" + address;
+
     var marker = new google.maps.Marker({
         position: latlng,
         map: map,
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+      infoWindow.setContent(html);
+      infoWindow.open(map, marker);
     });
 }
 
