@@ -68,7 +68,9 @@ const createMarker = (latlng, name, address, openStatusText, phone, storeNumber)
             <i class="fas fa-phone-volume"></i>
           </div>
           <span>
-           <a href="tel:${phone==null ? '(061) 80513222' : 'Data tidak ditemukan'}"> ${phone==null ? '(061) 80513222' : 'Data tidak ditemukan'} </a>
+           <a href="tel:${phone==null ? '(061) 80513222' : 'Data tidak ditemukan'}"> 
+            ${phone==null ? '(061) 80513222' : 'Data tidak ditemukan'} 
+           </a>
           </span>
         </div>
       </div>
