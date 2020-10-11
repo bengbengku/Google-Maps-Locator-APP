@@ -1,5 +1,6 @@
 var map;
 var infoWindow;
+var markers = [];
 
 function initMap() {
   let centerIndonesia = {
@@ -27,8 +28,21 @@ const getStores = () => {
     .then((data) => {
       searchLocationsNear(data);
       setStoresList(data);
+      setOnClickListener();
     });
 };
+
+
+const setOnClickListener = () => {
+  let storeElements = document.querySelectorAll('.store-container');
+  console.log(markers);
+  storeElements.forEach((elem, index) => {
+    elem.addEventListener('click', () => {
+      google.maps.event.trigger(markers[index], 'click');
+    })
+  })
+}
+
 
 const setStoresList = (stores) => {
   let storesHtml = "";
@@ -126,4 +140,6 @@ const createMarker = (
     infoWindow.setContent(html);
     infoWindow.open(map, marker);
   });
+
+  markers.push(marker);
 };
